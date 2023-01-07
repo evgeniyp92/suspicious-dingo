@@ -71,6 +71,9 @@ body {
   color: white;
   /* set the text to be all uppercase */
   text-transform: uppercase;
+  /* controls whether or not backface of an element is visible during
+  translation, fixes some animation bugs  */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -78,6 +81,9 @@ body {
   font-size: 5rem;
   font-weight: 400;
   letter-spacing: 2rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -85,4 +91,47 @@ body {
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.95rem;
+  animation-name: moveInRight;
+  /* define the overall length of the anim */
+  animation-duration: 1s;
+  /* define a function to control progression of the animation */
+  animation-timing-function: ease-out;
+  /* set a delay for an animation */
+  /* animation-delay: 3s; */
+  /* set how many times an anim will play */
+  /* animation-iteration-count: 3; */
 }
+
+/* browsers are optimized for transform and opacity animations */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-6rem);
+  }
+
+  /* simulate a rebound */
+  80% {
+    transform: translateX(0.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(6rem);
+  }
+
+  80% {
+    transform: translateX(-0.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} ;
