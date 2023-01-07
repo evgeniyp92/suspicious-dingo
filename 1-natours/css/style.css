@@ -6,3 +6,19 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* normalize css */
+* {
+  margin: 0;
+  padding: 0;
+  /* borders and paddings wont count towards the width and height of element */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #777;
+}
