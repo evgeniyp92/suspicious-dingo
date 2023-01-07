@@ -40,4 +40,49 @@ body {
   background-position: top;
   /* describe a polygon to clip the header */
   clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 0);
+  /* designate this element as the parent for .logo-box */
+  position: relative;
+}
+
+.logo-box {
+  /* set absolute positioning */
+  position: absolute;
+  /* move 40px away from top and left of .header */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  /* define the height, the width is automatically adjusted */
+  height: 2rem;
+}
+
+.text-box {
+  /* set centering via absolute position */
+  position: absolute;
+  /* shift the top left edge of the div 50% away from top and left of parent */
+  top: 45%;
+  left: 50%;
+  /* translate the div -50% of its own x and y lengths, thereby centering */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: white;
+  /* set the text to be all uppercase */
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 2rem;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.95rem;
 }
