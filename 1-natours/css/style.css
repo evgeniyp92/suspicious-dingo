@@ -61,10 +61,11 @@ body {
   /* set centering via absolute position */
   position: absolute;
   /* shift the top left edge of the div 50% away from top and left of parent */
-  top: 45%;
+  top: 40%;
   left: 50%;
   /* translate the div -50% of its own x and y lengths, thereby centering */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -74,6 +75,8 @@ body {
   /* controls whether or not backface of an element is visible during
   translation, fixes some animation bugs  */
   backface-visibility: hidden;
+  /* give space between the heading and the button */
+  margin-bottom: 4rem;
 }
 
 .heading-primary-main {
@@ -90,7 +93,7 @@ body {
   display: block;
   font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 0.95rem;
+  letter-spacing: 0.575rem;
   animation-name: moveInRight;
   /* define the overall length of the anim */
   animation-duration: 1s;
@@ -134,4 +137,41 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
-} ;
+}
+
+/* pseudoclasses */
+/* stlying links that have not been visited and those that have */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  /* treat the class as a block whereas normally it would be inline*/
+  /* since the inline block is treated as text we can set text-align on the
+  parent*/
+  display: inline-block;
+  /* make the button look like a pill */
+  border-radius: 10rem;
+  /* set the transition timing and function for all animations. fixes pesky bugs
+  around animation resetting too */
+  transition: all 100ms ease-in;
+}
+
+.btn:hover {
+  /* on hover, move the btn 4px up and give it a box shadow*/
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.75rem 2rem rgb(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  /* when clicked, move it down to initial position */
+  transform: translateY(0);
+  box-shadow: 0 0.25rem 1rem rgb(0, 0, 0, 0.4);
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;
+}
