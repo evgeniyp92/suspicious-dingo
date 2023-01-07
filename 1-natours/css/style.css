@@ -8,11 +8,20 @@ Dark green: #28b485
 */
 
 /* normalize css */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  /* borders and paddings wont count towards the width and height of element */
-  box-sizing: border-box;
+}
+
+html {
+  /* setting a global font-size and using rem elsewhere is handy for media
+  queries */
+  /* set font-size to a percentage to better handle accessibility needs */
+  font-size: 62.5%;
+  /* set box sizing like so to not have it influence widgets and the like*/
+  box-sizing: inherit;
 }
 
 body {
@@ -23,6 +32,8 @@ body {
   color: #777;
   /* set a padding on the entire body for some visual space */
   padding: 2rem;
+  /* borders and paddings wont count towards the width and height of element */
+  box-sizing: border-box;
 }
 
 .header {
