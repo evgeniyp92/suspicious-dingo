@@ -21,4 +21,23 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   color: #777;
+  /* set a padding on the entire body for some visual space */
+  padding: 2rem;
+}
+
+.header {
+  height: 95vh;
+  /* set the background of a linear gradient overlaid on a photo */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.6),
+      rgba(40, 180, 133, 0.6)
+    ),
+    url('../img/hero.jpg');
+  /* locks the background image to the right edge of the screen */
+  background-size: cover;
+  /* locks the background image to the top of the screen */
+  background-position: top;
+  /* describe a polygon to clip the header */
+  clip-path: polygon(100% 0, 100% 80%, 0 100%, 0 0);
 }
