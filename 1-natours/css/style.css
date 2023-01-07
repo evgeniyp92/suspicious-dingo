@@ -86,7 +86,7 @@ body {
   letter-spacing: 2rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
 }
 
 .heading-primary-sub {
@@ -98,7 +98,7 @@ body {
   /* define the overall length of the anim */
   animation-duration: 1s;
   /* define a function to control progression of the animation */
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in-out;
   /* set a delay for an animation */
   /* animation-delay: 3s; */
   /* set how many times an anim will play */
@@ -139,6 +139,22 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+
+  80% {
+    transform: translateY(-0.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* pseudoclasses */
 /* stlying links that have not been visited and those that have */
 .btn:link,
@@ -157,6 +173,8 @@ body {
   /* set the transition timing and function for all animations. fixes pesky bugs
   around animation resetting too */
   transition: all 100ms ease-in;
+  /* setting the button as the relative for the ::after button */
+  position: relative;
 }
 
 .btn:hover {
@@ -174,4 +192,44 @@ body {
 .btn-white {
   background-color: white;
   color: #777;
+}
+
+/* ::after and ::before add 'elements' before and after a real element */
+.btn::after {
+  /* must specify a content and display prop otherwise nothing will appear */
+  content: '';
+  /* aping the parent element */
+  display: inline-block;
+  /* setting the sizing of the button and position */
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* hiding the pseudoelement behind the button */
+  z-index: -1;
+  /* defining the transition property on the initial state of the element */
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: white;
+}
+
+/* select the btn::after when .btn is hovered */
+.btn:hover::after {
+  /* scale up the element */
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  /* adding an animation */
+  animation-name: moveInBottom;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+  /* apply the styles of 0 percent before the animation starts */
+  animation-fill-mode: backwards;
 }
